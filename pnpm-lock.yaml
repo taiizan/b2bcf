@@ -304,72 +304,7 @@ importers:
         specifier: ^5.4.0
         version: 5.9.3
 
-  frontend/apps/admin-dashboard:
-    dependencies:
-      '@b2b-coffee/shared-types':
-        specifier: workspace:*
-        version: link:../../../packages/shared-types
-      '@b2b-coffee/shared-ui':
-        specifier: workspace:*
-        version: link:../../shared-ui
-      next:
-        specifier: ^14.2.0
-        version: 14.2.35(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      react:
-        specifier: ^18.2.0
-        version: 18.3.1
-      react-dom:
-        specifier: ^18.2.0
-        version: 18.3.1(react@18.3.1)
-      recharts:
-        specifier: ^2.12.0
-        version: 2.15.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-    devDependencies:
-      '@types/react':
-        specifier: ^18.2.0
-        version: 18.3.28
-      '@types/react-dom':
-        specifier: ^18.2.0
-        version: 18.3.7(@types/react@18.3.28)
-      typescript:
-        specifier: ^5.4.0
-        version: 5.9.3
-
-  frontend/apps/buyer-portal:
-    dependencies:
-      '@b2b-coffee/shared-types':
-        specifier: workspace:*
-        version: link:../../../packages/shared-types
-      '@b2b-coffee/shared-ui':
-        specifier: workspace:*
-        version: link:../../shared-ui
-      next:
-        specifier: ^14.2.0
-        version: 14.2.35(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      react:
-        specifier: ^18.2.0
-        version: 18.3.1
-      react-dom:
-        specifier: ^18.2.0
-        version: 18.3.1(react@18.3.1)
-      recharts:
-        specifier: ^2.12.0
-        version: 2.15.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      socket.io-client:
-        specifier: ^4.7.4
-        version: 4.8.3
-    devDependencies:
-      '@types/react':
-        specifier: ^18.2.0
-        version: 18.3.28
-      '@types/react-dom':
-        specifier: ^18.2.0
-        version: 18.3.7(@types/react@18.3.28)
-      typescript:
-        specifier: ^5.4.0
-        version: 5.9.3
-
-  frontend/apps/supplier-portal:
+  frontend/apps/portal:
     dependencies:
       '@b2b-coffee/shared-types':
         specifier: workspace:*
