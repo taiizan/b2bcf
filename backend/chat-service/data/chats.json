@@ -68,6 +68,23 @@
         "user-01"
       ],
       "createdAt": "2026-03-31T12:21:38.762Z"
+    },
+    {
+      "id": "room-48b7e1c7",
+      "rfqId": "rfq-b734c0a0",
+      "participants": [
+        "user-01"
+      ],
+      "createdAt": "2026-04-13T03:17:27.519Z"
+    },
+    {
+      "id": "room-8f2006e4",
+      "rfqId": "rfq-9c8f9c34",
+      "participants": [
+        "user-03",
+        "user-01"
+      ],
+      "createdAt": "2026-04-13T03:19:39.285Z"
     }
   ],
   "messages": [
@@ -205,6 +222,15 @@
       "content": "ok r em nhé",
       "type": "text",
       "createdAt": "2026-03-31T12:23:50.813Z"
+    },
+    {
+      "id": "fbdd2b87-67a1-4e95-ad2a-330f3d45a3b7",
+      "roomId": "room-8f2006e4",
+      "senderId": "user-03",
+      "senderName": "Phạm Văn Đức",
+      "content": "alo a oi em khong ban kho ga",
+      "type": "text",
+      "createdAt": "2026-04-13T03:19:50.496Z"
     }
   ]
 }

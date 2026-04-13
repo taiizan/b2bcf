@@ -1,0 +1,19 @@
+[build]
+  # Thư mục gốc của project frontend (Next.js)
+  base = "frontend/apps/portal"
+  
+  # Lệnh build trên Netlify
+  command = "pnpm run build"
+  
+  # Thư mục chứa kết quả build của Next.js
+  publish = ".next"
+
+[build.environment]
+  # Fix version Node.js
+  NODE_VERSION = "20"
+  
+  # Biến môi trường này có thể được khai báo trên giao diện Netlify Dashboard
+  # API_BASE_URL = "https://your-api-gateway-url.com"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"

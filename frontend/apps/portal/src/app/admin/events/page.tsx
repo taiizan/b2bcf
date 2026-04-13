@@ -55,7 +55,7 @@ export default function AdminEventsPage() {
 
       <div className="card" style={{ background: '#1e1e1e', border: '1px solid #333', color: '#fff' }}>
         <h3 className="card-title" style={{ color: '#fff', borderBottomColor: '#333' }}>Logs System Events</h3>
-        
+
         {loading && events.length === 0 ? <p style={{ color: '#aaa' }}>Đang kết nối EventBus...</p> : (
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12, maxHeight: '65vh', overflowY: 'auto', paddingRight: 8 }}>
             {events.map((evt) => (
@@ -64,21 +64,21 @@ export default function AdminEventsPage() {
                 borderRadius: 8,
                 padding: 16,
                 borderLeft: '4px solid',
-                borderLeftColor: evt.type.includes('PO') ? '#10b981' : 
-                                 evt.type.includes('QUOTE') ? '#f59e0b' : 
-                                 evt.type.includes('RFQ') ? '#3b82f6' : 
-                                 evt.type.includes('CHAT') ? '#8b5cf6' : '#6b7280',
+                borderLeftColor: evt.type.includes('PO') ? '#10b981' :
+                  evt.type.includes('QUOTE') ? '#f59e0b' :
+                    evt.type.includes('RFQ') ? '#3b82f6' :
+                      evt.type.includes('CHAT') ? '#8b5cf6' : '#6b7280',
                 fontFamily: 'monospace',
                 fontSize: 13
               }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 8 }}>
                   <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
-                    <span style={{ 
+                    <span style={{
                       background: 'rgba(255,255,255,0.1)', padding: '2px 8px', borderRadius: 4, fontWeight: 'bold',
-                      color: evt.type.includes('PO') ? '#10b981' : 
-                             evt.type.includes('QUOTE') ? '#f59e0b' : 
-                             evt.type.includes('RFQ') ? '#3b82f6' : 
-                             evt.type.includes('CHAT') ? '#c4b5fd' : '#fff'
+                      color: evt.type.includes('PO') ? '#10b981' :
+                        evt.type.includes('QUOTE') ? '#f59e0b' :
+                          evt.type.includes('RFQ') ? '#3b82f6' :
+                            evt.type.includes('CHAT') ? '#c4b5fd' : '#fff'
                     }}>
                       {evt.type}
                     </span>
@@ -89,7 +89,7 @@ export default function AdminEventsPage() {
                     {new Date(evt.timestamp).toLocaleString()}
                   </div>
                 </div>
-                
+
                 <div style={{
                   background: '#1a1a1a', padding: 12, borderRadius: 6, margin: 0,
                   whiteSpace: 'pre-wrap', color: '#d1d5db',
@@ -101,7 +101,6 @@ export default function AdminEventsPage() {
             ))}
             {events.length === 0 && (
               <div style={{ textAlign: 'center', padding: 40, color: '#666' }}>
-                Hệ thống chưa có sự kiện nào. Hãy thử chạy một luồng RFQ -> Quote từ Buyer.
               </div>
             )}
           </div>
