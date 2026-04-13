@@ -1,0 +1,210 @@
+{
+  "rooms": [
+    {
+      "id": "room-admin-user-03",
+      "rfqId": "Admin Support",
+      "participants": [
+        "user-03",
+        "admin"
+      ],
+      "createdAt": "2026-03-27T07:48:49.122Z"
+    },
+    {
+      "id": "room-admin-user-01",
+      "rfqId": "Admin Support",
+      "participants": [
+        "user-01",
+        "admin"
+      ],
+      "createdAt": "2026-03-27T07:47:46.841Z"
+    },
+    {
+      "id": "room-global",
+      "rfqId": "Global",
+      "participants": [],
+      "createdAt": "2026-03-27T07:47:46.840Z"
+    },
+    {
+      "id": "room-01",
+      "rfqId": "rfq-01",
+      "participants": [
+        "user-01",
+        "user-03"
+      ],
+      "createdAt": "2026-03-25T07:45:48.167Z"
+    },
+    {
+      "id": "room-02",
+      "rfqId": "rfq-03",
+      "participants": [
+        "user-01",
+        "user-02"
+      ],
+      "createdAt": "2026-03-25T07:45:48.167Z"
+    },
+    {
+      "id": "room-c7c3494e",
+      "rfqId": "rfq-04a38c89",
+      "participants": [
+        "user-03",
+        "user-04"
+      ],
+      "createdAt": "2026-03-27T07:58:06.162Z"
+    },
+    {
+      "id": "room-2f81e2e8",
+      "rfqId": "rfq-02",
+      "participants": [
+        "user-03",
+        "user-04"
+      ],
+      "createdAt": "2026-03-27T07:58:23.285Z"
+    },
+    {
+      "id": "room-d952e858",
+      "rfqId": "rfq-5c32665f",
+      "participants": [
+        "user-03",
+        "user-01"
+      ],
+      "createdAt": "2026-03-31T12:21:38.762Z"
+    }
+  ],
+  "messages": [
+    {
+      "id": "a8fe0cb6-b58a-41e2-a9cb-7145ddc1b6a6",
+      "roomId": "room-01",
+      "senderId": "user-01",
+      "senderName": "Nguyễn Minh Tuấn",
+      "content": "Chào anh Đức, bên mình cần báo giá 2 tấn Robusta Natural cho Q2. Giá hiện tại thế nào ạ?",
+      "type": "text",
+      "createdAt": "2026-03-25T06:45:48.168Z"
+    },
+    {
+      "id": "05bc623c-f57e-4c18-b931-33a14e167587",
+      "roomId": "room-01",
+      "senderId": "user-03",
+      "senderName": "Phạm Văn Đức",
+      "content": "Chào anh Tuấn! Giá FOB hiện tại cho lô 2 tấn là $3.80/kg. Nếu commit hợp đồng Q2-Q3 thì mình có thể giảm xuống $3.60/kg.",
+      "type": "price_offer",
+      "metadata": {
+        "price": 3.6,
+        "unit": "USD/kg",
+        "condition": "Hợp đồng 2 quý"
+      },
+      "createdAt": "2026-03-25T06:55:48.168Z"
+    },
+    {
+      "id": "acb93d10-3270-4a6c-9912-63c9e39e6f4a",
+      "roomId": "room-01",
+      "senderId": "user-01",
+      "senderName": "Nguyễn Minh Tuấn",
+      "content": "Giá $3.60 khá hấp dẫn. Bên mình muốn xin mẫu thử 5kg trước khi chốt. Anh gửi được không?",
+      "type": "sample_request",
+      "metadata": {
+        "quantity": 5,
+        "unit": "kg"
+      },
+      "createdAt": "2026-03-25T07:05:48.168Z"
+    },
+    {
+      "id": "e31bbfae-d3ef-4981-9d0b-a69cfa2a93c6",
+      "roomId": "room-01",
+      "senderId": "user-03",
+      "senderName": "Phạm Văn Đức",
+      "content": "Được anh! Mình sẽ gửi mẫu 5kg qua express, 2-3 ngày sẽ tới. Mình đính kèm profile cupping luôn nhé.",
+      "type": "text",
+      "createdAt": "2026-03-25T07:15:48.168Z"
+    },
+    {
+      "id": "b0049237-4b6f-4805-8448-22f69f425e46",
+      "roomId": "room-02",
+      "senderId": "user-01",
+      "senderName": "Nguyễn Minh Tuấn",
+      "content": "alo vũ à vũ",
+      "type": "text",
+      "createdAt": "2026-03-27T06:41:58.518Z"
+    },
+    {
+      "id": "1ffbbf29-2aae-440c-b6ff-f9c25a1ad3e2",
+      "roomId": "room-01",
+      "senderId": "user-03",
+      "senderName": "Phạm Văn Đức",
+      "content": "alo vũ à vũ",
+      "type": "text",
+      "createdAt": "2026-03-27T06:43:34.133Z"
+    },
+    {
+      "id": "14b2a007-8583-4a11-81c4-58c4f74cc122",
+      "roomId": "room-01",
+      "senderId": "user-01",
+      "senderName": "Nguyễn Minh Tuấn",
+      "content": "alo anh ơi em không phải vũ đâu anh ơi anh nhầm người r ạ",
+      "type": "text",
+      "createdAt": "2026-03-27T06:44:05.730Z"
+    },
+    {
+      "id": "4a6b0d5d-8d50-4b7a-bf16-f7b83a0a9d07",
+      "roomId": "room-01",
+      "senderId": "user-03",
+      "senderName": "Phạm Văn Đức",
+      "content": "chối làm sao được em ơi",
+      "type": "text",
+      "createdAt": "2026-03-27T06:44:32.984Z"
+    },
+    {
+      "id": "0eafea2c-ac9e-441e-83ee-47c72cb1bf41",
+      "roomId": "room-01",
+      "senderId": "user-03",
+      "senderName": "Phạm Văn Đức",
+      "content": "em mà không đàng hoàng là anh leak hết thông tin của em đấy",
+      "type": "text",
+      "createdAt": "2026-03-27T06:44:57.293Z"
+    },
+    {
+      "id": "b3b94dbc-d651-4116-89e2-fd7bb3490724",
+      "roomId": "room-01",
+      "senderId": "user-03",
+      "senderName": "Phạm Văn Đức",
+      "content": "huhu",
+      "type": "text",
+      "createdAt": "2026-03-27T06:46:42.386Z"
+    },
+    {
+      "id": "813edcb0-0346-4820-a8bd-9e2aeed073e9",
+      "roomId": "room-01",
+      "senderId": "user-03",
+      "senderName": "Phạm Văn Đức",
+      "content": "oke em",
+      "type": "text",
+      "createdAt": "2026-03-27T06:46:49.461Z"
+    },
+    {
+      "id": "9659a2c0-1d40-441f-8ddd-3e266b90147b",
+      "roomId": "room-01",
+      "senderId": "user-01",
+      "senderName": "Nguyễn Minh Tuấn",
+      "content": "huhu tội em quá anh ơi",
+      "type": "text",
+      "createdAt": "2026-03-27T06:49:12.167Z"
+    },
+    {
+      "id": "6525f428-5fe9-42d5-b749-ec93b1c57f85",
+      "roomId": "room-d952e858",
+      "senderId": "user-03",
+      "senderName": "Phạm Văn Đức",
+      "content": "em báo giá rồi ấy ạ anh thấy sao",
+      "type": "text",
+      "createdAt": "2026-03-31T12:21:58.790Z"
+    },
+    {
+      "id": "0584683f-1d40-4e16-9218-66c6f28f4c7b",
+      "roomId": "room-d952e858",
+      "senderId": "user-01",
+      "senderName": "Nguyễn Minh Tuấn",
+      "content": "ok r em nhé",
+      "type": "text",
+      "createdAt": "2026-03-31T12:23:50.813Z"
+    }
+  ]
+}

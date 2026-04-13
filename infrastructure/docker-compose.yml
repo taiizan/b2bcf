@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  # ── Message Broker ─────────────────────────────────────────
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: coffee
+      RABBITMQ_DEFAULT_PASS: wholesale2024
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+
+  # ── Databases ──────────────────────────────────────────────
+  postgres:
+    image: postgres:16-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: coffee_admin
+      POSTGRES_PASSWORD: coffee_pass_2024
+      POSTGRES_DB: b2b_coffee
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  mongodb:
+    image: mongo:7
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: coffee_admin
+      MONGO_INITDB_ROOT_PASSWORD: coffee_pass_2024
+    volumes:
+      - mongo_data:/data/db
+
+  # ── Cache ──────────────────────────────────────────────────
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    command: redis-server --requirepass coffee_redis_2024
+
+volumes:
+  rabbitmq_data:
+  postgres_data:
+  mongo_data:

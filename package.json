@@ -1,0 +1,17 @@
+{
+  "name": "b2b-coffee-wholesale",
+  "version": "1.0.0",
+  "private": true,
+  "description": "B2B Coffee Wholesale Portal — Microservices + Event-Driven Architecture",
+  "scripts": {
+    "dev": "concurrently \"pnpm dev:services\" \"pnpm dev:frontend\"",
+    "dev:services": "concurrently \"pnpm --filter api-gateway dev\" \"pnpm --filter user-service dev\" \"pnpm --filter rfq-service dev\" \"pnpm --filter order-service dev\" \"pnpm --filter chat-service dev\" \"pnpm --filter notification-service dev\" \"pnpm --filter ai-service dev\"",
+    "dev:frontend": "pnpm -F @b2b-coffee/portal dev",
+    "build": "pnpm -r build",
+    "lint": "pnpm -r lint"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "typescript": "^5.4.0"
+  }
+}
