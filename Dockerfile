@@ -1,7 +1,7 @@
 # Dockerfile for B2B Coffee Wholesale (Monorepo)
 # Build toàn bộ Backend Microservices trong một Container
 
-# ⚠️ Dùng Node 22 vì backend sử dụng node:sqlite (built-in từ Node 22.5+)
+# Node 22 vì backend sử dụng node:sqlite (built-in từ Node 22.5+)
 FROM node:22-alpine AS builder
 
 WORKDIR /app
@@ -15,10 +15,10 @@ COPY packages/ ./packages/
 COPY frontend/shared-ui/ ./frontend/shared-ui/
 COPY backend/ ./backend/
 
-# Cài đặt TẤT CẢ dependencies
+# Cài đặt TẤT CẢ dependencies (bao gồm devDeps có concurrently)
 RUN pnpm install --frozen-lockfile --no-optional
 
-# Build shared packages trước (event-schemas, shared-types, shared-ui)
+# Build shared packages trước
 RUN pnpm --filter "@b2b-coffee/event-schemas" run build || true
 RUN pnpm --filter "@b2b-coffee/shared-types" run build || true
 RUN pnpm --filter "@b2b-coffee/shared-ui" run build || true
@@ -32,11 +32,8 @@ FROM node:22-alpine AS runner
 WORKDIR /app
 RUN corepack enable && corepack prepare pnpm@latest --activate
 
-# Copy mọi thứ đã build
+# Copy mọi thứ đã build (concurrently đã có sẵn từ builder)
 COPY --from=builder /app ./
-
-# Thêm concurrently (cần cho start:backend)
-RUN pnpm add -w concurrently
 
 EXPOSE 4000
 
