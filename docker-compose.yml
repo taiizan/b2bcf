@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  # Cấu hình chứa toàn bộ Dịch vụ Microservices của B2B Coffee Backend
+  b2b-backend:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: b2b-backend-services
+    restart: always
+    ports:
+      # Expose API Gateway ra bên ngoài để Frontend Netlify của bạn gọi vào
+      - "4000:4000"
+      # (Tuỳ chọn) Expose các cổng dịch vụ nội bộ nếu cần debug
+      - "4001:4001" # User service
+      - "4002:4002" # RFQ service
+      - "4003:4003" # Order service
+      - "4004:4004" # Chat service
+      - "4005:4005" # Notification service
+      - "4006:4006" # AI service
+    environment:
+      - NODE_ENV=production
+      - API_GATEWAY_PORT=4000
+    # Mounting volumes cho database sqlite locale (Nếu đang sử dụng SQLite / Local Data)
+    # volumes:
+    #   - ./backend/user-service/data:/app/backend/user-service/data

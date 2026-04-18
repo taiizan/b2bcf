@@ -2,68 +2,68 @@
 // B2B Coffee Wholesale — Shared UI Design Tokens & Utilities
 // ═══════════════════════════════════════════════════════════════
 
-// ── Color Palette — Coffee-themed Premium Dark Mode ──────────
+// ── Color Palette — Claude Anthropic System ──────────
 export const colors = {
-  // Primary (Rich espresso brown)
+  // Primary (Terracotta Brand)
   primary: {
-    50: '#fdf8f0',
-    100: '#f8edd8',
-    200: '#f0d7ab',
-    300: '#e5b96e',
-    400: '#d99a3e',
-    500: '#c47f1a',   // Main
-    600: '#a66414',
-    700: '#854c12',
-    800: '#6d3d16',
-    900: '#5a3316',
+    50: '#faf9f5', // Ivory
+    100: '#f5f4ed', // Parchment
+    200: '#e8e6dc', // Border Warm
+    300: '#d1cfc5', // Ring Warm
+    400: '#d97757', // Coral Accent
+    500: '#c96442', // Terracotta Brand
+    600: '#b53333', // Error Crimson (used as darker variant here)
+    700: '#7e1d1d',
+    800: '#5e5d59',
+    900: '#141413', // Near Black
   },
-  // Accent (Coffee cherry red)
+  // Accent (Coral / Warm)
   accent: {
-    50: '#fef2f2',
-    100: '#fee2e2',
-    200: '#fecaca',
-    300: '#f8a4a4',
-    400: '#f27272',
-    500: '#e84545',   // Main
-    600: '#d42525',
-    700: '#b21c1c',
-    800: '#941c1c',
-    900: '#7e1d1d',
+    50: '#f0eee6',
+    100: '#e8e6dc',
+    200: '#d1cfc5',
+    300: '#c2c0b6',
+    400: '#d97757',
+    500: '#b53333', // Crimson
+    600: '#941c1c',
+    700: '#7e1d1d',
+    800: '#4d4c48',
+    900: '#3d3d3a',
   },
-  // Success (Green bean)
+  // Success (Positive)
   success: {
-    50: '#f0fdf4',
+    50: '#f1f8f3',
     400: '#4ade80',
-    500: '#22c55e',
-    600: '#16a34a',
+    500: '#1e873a', // Main
+    600: '#007d1e',
   },
-  // Warning (Honey process)
+  // Warning (Amber)
   warning: {
     50: '#fffbeb',
     400: '#fbbf24',
-    500: '#f59e0b',
+    500: '#d99118', // Main
     600: '#d97706',
   },
-  // Dark theme (Roasted coffee tones)
+  // Dark/Grayscale theme (Warm Olive/Charcoal)
   dark: {
-    50: '#f8f5f0',
-    100: '#e8e0d4',
-    200: '#d4c8b8',
-    300: '#b5a48e',
-    400: '#8b7355',
-    500: '#6b5641',
-    600: '#4a3728',
-    700: '#362818',
-    800: '#271d11',
-    900: '#1a130b',
-    950: '#0f0b07',
+    50: '#f5f4ed',  // Parchment
+    100: '#faf9f5', // Ivory
+    200: '#f0eee6', // Border Cream
+    300: '#e8e6dc', // Warm Sand
+    400: '#d1cfc5', // Ring Warm
+    500: '#b0aea5', // Warm Silver
+    600: '#87867f', // Stone Gray
+    700: '#5e5d59', // Olive Gray
+    800: '#4d4c48', // Charcoal Warm
+    900: '#30302e', // Dark Surface
+    950: '#141413', // Near Black
   },
 };
 
 // ── Typography ───────────────────────────────────────────────
 export const fonts = {
-  heading: "'Inter', 'Outfit', sans-serif",
-  body: "'Inter', system-ui, sans-serif",
+  heading: "Georgia, 'Times New Roman', Times, serif",
+  body: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif",
   mono: "'JetBrains Mono', 'Fira Code', monospace",
 };
 

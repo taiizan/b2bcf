@@ -1,9 +1,14 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { useRouter } from 'next/navigation';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+
+gsap.registerPlugin(useGSAP);
 
 export default function LoginPage() {
+  const container = useRef<HTMLDivElement>(null);
   const [role, setRole] = useState<'BUYER' | 'SUPPLIER' | 'ADMIN'>('BUYER');
   
   // Auto-fill based on role
@@ -18,6 +23,29 @@ export default function LoginPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const router = useRouter();
+
+  // GSAP Choreography
+  useGSAP(() => {
+    const tl = gsap.timeline();
+    // Card entrance
+    tl.from('.login-card', {
+      scale: 0.95,
+      y: 20,
+      opacity: 0,
+      duration: 0.8,
+      ease: 'power3.out',
+      clearProps: 'opacity,transform'
+    });
+    // Stagger all items inside
+    tl.from('.gsap-stagger', {
+      y: 15,
+      opacity: 0,
+      duration: 0.6,
+      stagger: 0.1,
+      ease: 'power2.out',
+      clearProps: 'opacity,transform'
+    }, "-=0.4");
+  }, { scope: container });
 
   const handleRoleChange = (newRole: 'BUYER' | 'SUPPLIER' | 'ADMIN') => {
     setRole(newRole);
@@ -58,9 +86,9 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="login-page">
-      <div className="login-card animate-in" style={{ maxWidth: 440 }}>
-        <div style={{ textAlign: 'center', marginBottom: 24 }}>
+    <div className="login-page" ref={container}>
+      <div className="login-card" style={{ maxWidth: 440 }}>
+        <div className="gsap-stagger" style={{ textAlign: 'center', marginBottom: 24 }}>
           <div style={{
             width: 56, height: 56, borderRadius: 16,
             background: 'linear-gradient(135deg, #c47f1a, #e5b96e)',
@@ -73,7 +101,7 @@ export default function LoginPage() {
         </div>
 
         {/* Role Selector Tabs */}
-        <div style={{ display: 'flex', gap: 8, marginBottom: 24, background: 'var(--bg-card)', padding: 6, borderRadius: 12, border: '1px solid var(--glass-border)' }}>
+        <div className="gsap-stagger" style={{ display: 'flex', gap: 8, marginBottom: 24, background: 'var(--bg-card)', padding: 6, borderRadius: 12, border: '1px solid var(--glass-border)' }}>
           {['BUYER', 'SUPPLIER', 'ADMIN'].map((r) => (
             <button
               key={r}
@@ -94,7 +122,7 @@ export default function LoginPage() {
         </div>
 
         {error && (
-          <div style={{
+          <div className="gsap-stagger" style={{
             background: 'rgba(232, 69, 69, 0.12)', border: '1px solid rgba(232, 69, 69, 0.3)',
             borderRadius: 10, padding: '12px 14px', marginBottom: 20,
             color: '#e84545', fontSize: 13, display: 'flex', alignItems: 'center', gap: 8
@@ -104,20 +132,20 @@ export default function LoginPage() {
         )}
 
         <form onSubmit={handleLogin}>
-          <div className="form-group" style={{ marginBottom: 16 }}>
+          <div className="form-group gsap-stagger" style={{ marginBottom: 16 }}>
             <label className="form-label">Tài khoản Email ({role})</label>
             <input className="form-input" type="email" value={email}
               onChange={(e) => setEmail(e.target.value)} placeholder="your@email.com" required 
               style={{ fontSize: 15, padding: '12px 16px' }}/>
           </div>
-          <div className="form-group" style={{ marginBottom: 24 }}>
+          <div className="form-group gsap-stagger" style={{ marginBottom: 24 }}>
             <label className="form-label">Mật khẩu</label>
             <input className="form-input" type="password" value={password}
               onChange={(e) => setPassword(e.target.value)} placeholder="••••••••" required 
               style={{ fontSize: 15, padding: '12px 16px' }}/>
           </div>
           
-          <button className="btn btn-primary" type="submit" disabled={loading} 
+          <button className="btn btn-primary gsap-stagger" type="submit" disabled={loading} 
             style={{ 
               width: '100%', padding: '14px', fontSize: 15, fontWeight: 600,
               background: role === 'ADMIN' ? 'linear-gradient(135deg, #2563eb, #06b6d4)' : 

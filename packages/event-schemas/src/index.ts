@@ -179,7 +179,11 @@ export class EventBus {
 
     // Broadcast across microservices for Admin Dashboard visibility
     if (event.source !== 'notification-service') {
-      fetch('http://localhost:4005/api/events/webhook', {
+      const webhookUrl = process.env.NOTIFICATION_SERVICE_URL
+        ? `${process.env.NOTIFICATION_SERVICE_URL}/api/events/webhook`
+        : 'http://localhost:4005/api/events/webhook';
+
+      fetch(webhookUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(event)

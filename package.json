@@ -8,7 +8,8 @@
     "dev:services": "concurrently \"pnpm --filter api-gateway dev\" \"pnpm --filter user-service dev\" \"pnpm --filter rfq-service dev\" \"pnpm --filter order-service dev\" \"pnpm --filter chat-service dev\" \"pnpm --filter notification-service dev\" \"pnpm --filter ai-service dev\"",
     "dev:frontend": "pnpm -F @b2b-coffee/portal dev",
     "build": "pnpm -r build",
-    "lint": "pnpm -r lint"
+    "lint": "pnpm -r lint",
+    "start:backend": "concurrently \"PORT=4001 pnpm --filter user-service start\" \"PORT=4002 pnpm --filter rfq-service start\" \"PORT=4003 pnpm --filter order-service start\" \"PORT=4004 pnpm --filter chat-service start\" \"PORT=4005 pnpm --filter notification-service start\" \"PORT=4006 pnpm --filter ai-service start\" \"pnpm --filter api-gateway start\""
   },
   "devDependencies": {
     "concurrently": "^8.2.2",
