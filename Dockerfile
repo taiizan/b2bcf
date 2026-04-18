@@ -1,43 +1,47 @@
 # Dockerfile for B2B Coffee Wholesale (Monorepo)
-# Build toàn bộ Backend Microservices trong một Container
+# Gộp tất cả Microservices vào 1 process để tiết kiệm RAM (Free Tier)
 
-# Dùng node:22-slim thay vì alpine (hỗ trợ node:sqlite tốt hơn)
 FROM node:22-slim AS builder
 
 WORKDIR /app
-
-# Cài đặt pnpm
 RUN corepack enable && corepack prepare pnpm@latest --activate
 
-# Copy toàn bộ monorepo config
+# Copy monorepo
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml tsconfig.base.json ./
 COPY packages/ ./packages/
 COPY frontend/shared-ui/ ./frontend/shared-ui/
 COPY backend/ ./backend/
 
-# Cài đặt TẤT CẢ dependencies
+# Cài dependencies
 RUN pnpm install --frozen-lockfile --no-optional
 
-# Build shared packages trước
+# Build shared packages
 RUN pnpm --filter "@b2b-coffee/event-schemas" run build || true
 RUN pnpm --filter "@b2b-coffee/shared-types" run build || true
 RUN pnpm --filter "@b2b-coffee/shared-ui" run build || true
 
-# Build backend services
+# Build backend
 RUN pnpm --filter "*-service" --filter "api-gateway" run build
 
 # ─── PRODUCTION RUNNER ──────────────────────────────────────────────
 FROM node:22-slim AS runner
-
 WORKDIR /app
 RUN corepack enable && corepack prepare pnpm@latest --activate
 
-# Copy mọi thứ đã build
 COPY --from=builder /app ./
+COPY server.js ./server.js
 
-# Bật tính năng thử nghiệm node:sqlite
-ENV NODE_OPTIONS="--experimental-sqlite"
+# Tạo thư mục data cho SQLite
+RUN mkdir -p backend/user-service/data \
+    backend/rfq-service/data \
+    backend/order-service/data \
+    backend/chat-service/data \
+    backend/notification-service/data \
+    backend/ai-service/data
 
-EXPOSE 4000
+ENV NODE_OPTIONS="--experimental-sqlite --max-old-space-size=384"
+ENV GATEWAY_PORT="10000"
+EXPOSE 10000
 
-CMD ["pnpm", "run", "start:backend"]
+# Chạy 1 process duy nhất thay vì 7
+CMD ["node", "server.js"]
