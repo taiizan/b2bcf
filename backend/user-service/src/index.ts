@@ -54,6 +54,31 @@ db.exec(`
 
 // ── Auth Middleware ──────────────────────────────────────────
 
+// ── Auto-seed demo data if DB is empty ──────────────────────
+const userCount = db.prepare('SELECT COUNT(*) as count FROM users').get() as any;
+if (userCount.count === 0) {
+  console.log('📦 Seeding demo accounts...');
+  const bcryptSync = require('bcryptjs');
+
+  const demoData = [
+    { email: 'buyer@highland.vn', name: 'Highland Buyer', role: 'BUYER', company: 'Highland Coffee', companyType: 'CAFE_CHAIN' },
+    { email: 'farmer@daklak.vn', name: 'Dak Lak Farmer', role: 'SUPPLIER', company: 'Dak Lak Coffee Farm', companyType: 'FARM' },
+    { email: 'admin@b2bcoffee.vn', name: 'B2B Admin', role: 'ADMIN', company: 'B2B Coffee Platform', companyType: 'PLATFORM' },
+  ];
+
+  const hashedPassword = bcryptSync.hashSync('password123', 10);
+
+  demoData.forEach((d) => {
+    const companyId = uuidv4();
+    db.prepare('INSERT INTO companies (id, name, type, email) VALUES (?, ?, ?, ?)').run(companyId, d.company, d.companyType, d.email);
+    const userId = uuidv4();
+    db.prepare('INSERT INTO users (id, email, password, name, role, companyId) VALUES (?, ?, ?, ?, ?, ?)').run(userId, d.email, hashedPassword, d.name, d.role, companyId);
+    console.log(`  ✅ Created ${d.role}: ${d.email}`);
+  });
+}
+
+// ── Auth Middleware ──────────────────────────────────────────
+
 function authenticateToken(req: any, res: any, next: any) {
   const authHeader = req.headers['authorization'];
   const token = authHeader && authHeader.split(' ')[1];
